@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/ChatBot">
+        <file>window.qml</file>
+        <file>LineEdit.qml</file>
+        <file>Capability.qml</file>
+        <file>Command.qml</file>
+        <file>TextDisplay.qml</file>
+        <file>JoinChannel.qml</file>
+        <file>CapabilitiesPopup.qml</file>
+        <file>persistent.json</file>
+        <file>Setting.qml</file>
+        <file>Icons/ForwardArrow.png</file>
+        <file>Icons/BackArrow.png</file>
+        <file>Settings.qml</file>
+        <file>Icons/WindowIcon.png</file>
+    </qresource>
+</RCC>
