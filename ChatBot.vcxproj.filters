@@ -55,11 +55,6 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="ChatBot.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-  </ItemGroup>
-  <ItemGroup>
     <QtRcc Include="ChatBot.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>

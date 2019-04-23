@@ -125,9 +125,6 @@
     <QtMoc Include="ChatBot.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="ChatBot.ui" />
-  </ItemGroup>
-  <ItemGroup>
     <QtRcc Include="ChatBot.qrc" />
   </ItemGroup>
   <ItemGroup>
