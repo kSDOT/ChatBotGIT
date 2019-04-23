@@ -1,2 +1,2 @@
 # ChatBotGIT
-ChatBot for IRC client, written in c++, extendable through QML/JS.
+ChatBot for Twitch IRC, written in c++, extendable through QML/JS.
