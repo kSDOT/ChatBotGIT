@@ -1,16 +1,25 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+Rectangle{
+   id: frame
+   property alias model: model
+   property alias view: textDisplay
 
-Flickable{
-	id: textDisplay
+   color: Qt.hsla(1, 1, 1, 0.7);
+   border.color: Qt.hsla(0.738, 1, 0.3, 1);
+   border.width: 3
 
-	property alias textDisplayArea : textDisplayArea
-	contentHeight: textDisplayArea.height
-	clip: true
-	boundsMovement: Flickable.StopAtBounds
-	boundsBehavior: Flickable.StopAtBounds
-
-	   ScrollBar.vertical: ScrollBar {
+	ListView{
+		id: textDisplay
+		anchors.fill: parent
+		anchors.margins: 3
+		boundsMovement: Flickable.StopAtBounds
+		boundsBehavior: Flickable.StopAtBounds
+		clip: true
+	
+		property real scale: 1
+	    
+		ScrollBar.vertical: ScrollBar {
 		   id: vBar
            active: true
 		   contentItem: Rectangle{
@@ -22,35 +31,23 @@ Flickable{
            onActiveChanged:  if (!active) active = true;		
        }
 
-	 /*ScrollBar.horizontal: ScrollBar {//word wrap enabled
-		   id: hBar
-          active: true
-		   contentItem: Rectangle{
-				 color: hBar.pressed? Qt.hsla(0.738, 1, 0.3, 1) : Qt.hsla(0.738, 1, 0.1, 1);
-				  implicitHeight: 6
-				  implicitWidth: 100
-				  radius: height / 2
-		   }
-           onActiveChanged:  if (!active) active = true;		
-       }*/
-
-
-
-	TextArea.flickable:	TextArea {
-		 id:  textDisplayArea
-		 //maximumBlockCount: 5000
-		background: Rectangle{
-			color: Qt.hsla(1, 1, 1, 0.7);
-			border.color: Qt.hsla(0.738, 1, 0.3, 1);
-			border.width: 3
+	   	onCountChanged: console.log(count)
+		ListModel { id: model}
+		Component{	 
+			id:  delegate
+			Text{
+				text: name
+				font.weight: Font.Medium
+				font.pointSize: 12 * textDisplay.scale
+				color: "Black"	
+				wrapMode: Text.WordWrap
+				width: parent.width
+			}		
 		}
-		readOnly: true
-		selectByMouse: true
-		wrapMode: Text.WordWrap
-		font.weight: Font.Medium
-		font.pointSize: 12
-		color: "Black"
-		clip: true
+
+		model: model
+		delegate: delegate
+
 		MouseArea{
 			anchors.fill: parent
 			propagateComposedEvents: true
@@ -58,9 +55,9 @@ Flickable{
 			onWheel: {
 				if(wheel.modifiers & Qt.ControlModifier){ //ctrl + wheel
 					if(wheel.angleDelta.y > 0)
-						textDisplayArea.font.pointSize++;
+						textDisplay.scale+= 0.1;
 					else if (wheel.angleDelta.y < 0)
-						textDisplayArea.font.pointSize--;
+						textDisplay.scale-= 0.1;
 				}
 				else
 					wheel.accepted = false;//pass for other events

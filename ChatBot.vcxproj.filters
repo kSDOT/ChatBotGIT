@@ -86,9 +86,6 @@
     <None Include="Command.qml">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="TextDisplay.qml">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="CapabilitiesPopup.qml">
       <Filter>Resource Files</Filter>
     </None>
@@ -102,6 +99,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Settings.qml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TextDisplay.qml">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

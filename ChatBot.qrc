@@ -4,7 +4,6 @@
         <file>LineEdit.qml</file>
         <file>Capability.qml</file>
         <file>Command.qml</file>
-        <file>TextDisplay.qml</file>
         <file>JoinChannel.qml</file>
         <file>CapabilitiesPopup.qml</file>
         <file>persistent.json</file>
@@ -13,5 +12,6 @@
         <file>Icons/BackArrow.png</file>
         <file>Settings.qml</file>
         <file>Icons/WindowIcon.png</file>
+        <file>TextDisplay.qml</file>
     </qresource>
 </RCC>

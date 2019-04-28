@@ -3,7 +3,6 @@ import QtQuick.Window 2.5
 import QtQuick.Layouts 1.11
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Styles 1.4
-import "../ChatBot"
 ApplicationWindow {
 	id: root
 	objectName: "window"
@@ -24,7 +23,9 @@ ApplicationWindow {
 		commandParser.commandReceive(data)
 	}
 	function dataReceived(data){
-		textDisplay.textDisplayArea.append(data);
+	//	textDisplay.textDisplayArea.append(data);
+	textDisplay.model.append({"name": data});
+     textDisplay.view.positionViewAtEnd();
 	}
 	function clearInputLine(){
 		textInput.textInput.clear();
@@ -43,7 +44,7 @@ ApplicationWindow {
 		GradientStop { position: 0.25; color: Qt.hsla(0.738, 1, 0.3, 0.6)}
 		GradientStop { position: 1.0; color: Qt.hsla(0.738, 1, 0.3, 0)}
 	}
-			
+	
 	TextDisplay{
 		id: textDisplay
 		anchors.top: parent.top
@@ -52,8 +53,7 @@ ApplicationWindow {
 		anchors.leftMargin: 5
 		anchors.right: parent.right
 		anchors.rightMargin: 5
-		contentHeight: root.height / 2 - 20
-		height: root.height  * 5 / 8 - 20
+		height:root.height  * 5 / 8 - 20
 	}
 
 	Rectangle{//middle element to space out the other 2 elements, use to display capabilites

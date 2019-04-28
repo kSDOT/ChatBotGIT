@@ -19,7 +19,6 @@ int main(int argc, char** argv) {
 
 	return app.exec();   
 }
-//now:
-//limit text lines because its fucking performance up
+//todo:
 //ssl error handling
 //install/uninstall wizrd (ssl, qt)
